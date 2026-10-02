@@ -13,8 +13,8 @@ export default function Banner() {
     const [index, setIndex] = useState(0);
 
     return (
-        <div 
-            className="block p-[5px] m-0 w-screen h-[80vh] relative cursor-pointer" 
+        <div
+            className="relative block m-0 w-full h-[80vh] cursor-pointer overflow-hidden"
             onClick={() => setIndex((index + 1) % covers.length)}
         >
             <Image
@@ -24,14 +24,18 @@ export default function Banner() {
                 className="object-cover"
                 priority
             />
-            <div className="relative top-[100px] z-20 text-center text-white text-3xl [text-shadow:_0_0_10px_rgba(0,0,0,0.8),_0_0_20px_rgba(0,0,0,0.6),_0_0_30px_rgba(0,0,0,0.4)] pointer-events-none">
+
+            {/* Headline: pinned at 20% from the top of the banner */}
+            <div className="absolute inset-x-0 top-[20%] z-20 text-center text-white text-3xl [text-shadow:_0_0_10px_rgba(0,0,0,0.8),_0_0_20px_rgba(0,0,0,0.6),_0_0_30px_rgba(0,0,0,0.4)] pointer-events-none">
                 <h1>{reqText}</h1>
                 <h3 className="text-2xl">{announceText}</h3>
             </div>
-            <div className='relative top-[500px] z-20 text-right text-white text-3xl text-shadow-lg p-10 '>
+
+            {/* Link: pinned to the bottom-right corner of the banner */}
+            <div className="absolute bottom-0 right-0 z-20 p-10 text-white text-3xl text-shadow-lg">
                 <Link href='/venue' onClick={(e) => e.stopPropagation()}>
                     Select Venue
-                </Link>    
+                </Link>
             </div>
         </div>
     );
