@@ -4,16 +4,15 @@ import Banner from "@/components/Banner";
 import Card from "@/components/Card"
 import CardPanel from "@/components/CardPanel";
 import Link from "next/link";
+import PromoteCard from "@/components/PromoteCard";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Banner/>
-        <Link href='/venue' className="flex flex-row justify-end">
-            <div>Select Venue</div>
-        </Link>
       </main>
+      <PromoteCard/>
     </div>
   );
 }
